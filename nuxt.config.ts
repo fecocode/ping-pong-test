@@ -6,4 +6,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/'
   },
+  runtimeConfig: {
+    MESSAGE: process.env.MESSAGE || 'Default message (Please, follow README.md steps to set a message for test)',
+  }
 })
