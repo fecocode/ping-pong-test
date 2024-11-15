@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  nuxt-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PORT: ${PORT}
+        HOST: ${HOST}
+    container_name: nuxt3-app
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      NODE_ENV: production
+      MESSAGE: ${MESSAGE}
+      PORT: ${PORT}
+      HOST: ${HOST}
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./.env:/app/.env
+    restart: always
